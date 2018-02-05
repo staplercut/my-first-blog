@@ -1,0 +1,16 @@
+{% extends 'products/base.html' %}
+
+{% block content %}
+    <div class="item-detail">
+		<a class="btn btn-default" href="{% url 'item_edit' pk=item.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% if item.published_date %}
+            <div class="date">
+                {{ item.published_date }}
+            </div>
+        {% endif %}
+		
+		<h1>{{ item.title }}</h1>
+		        <p>{{ item.description|linebreaksbr }}</p>
+        <a href="{% url 'item_delete' pk=item.pk %}" class="btn btn-default">Delete</a>
+    </div>
+{% endblock %}

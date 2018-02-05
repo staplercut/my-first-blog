@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<html>
+
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="{% static 'css/index.css' %}">
+    </head>
+    <body>
+        <div class="buttons-index">
+            <a class="btn btn-default" href="{% url 'item_list' %}"><span>SHOP</span></a>
+            <a class="btn btn-default" href="{% url 'post_list' %}"><span>BLOG</span></a>
+        </div>
+    </body>
+</html>

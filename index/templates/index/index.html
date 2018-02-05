@@ -10,8 +10,21 @@
     </head>
     <body>
         <div class="buttons-index">
-            <a class="btn btn-default" href="{% url 'item_list' %}"><span>SHOP</span></a>
-            <a class="btn btn-default" href="{% url 'post_list' %}"><span>BLOG</span></a>
+            <div class="shop">
+                <a class="btn btn-default" href="{% url 'item_list' %}">SHOP</a>
+            </div>
+            <div class="blog">
+                <a class="btn btn-default" href="{% url 'post_list' %}">BLOG</a>
+            </div>
         </div>
+        {% if user.is_authenticated %}
+            <div class="logged-user">
+                <a href="{% url 'accounts:logout_view' %}">Welcome, {{ user.username }}! Logout</a>
+            </div>
+        {% else %}
+            <div class="logged-user">
+                <a href="{% url 'accounts:login_view' %}">Login</a>
+            </div>
+        {% endif %}
     </body>
 </html>

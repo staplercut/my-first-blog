@@ -25,7 +25,7 @@ SECRET_KEY = '%-$p1tv2uwpwb+k+xmxc&rp6ogi+r6l_r*^vj@n+($(adpyur0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'staplercut.pythonanywhere.com' , '6fe2c718.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1', 'staplercut.pythonanywhere.com', '2fe66ecd.ngrok.io']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-	'blog',
+    'blog',
     'products',
     'index',
     'accounts',

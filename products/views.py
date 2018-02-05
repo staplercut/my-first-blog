@@ -41,8 +41,8 @@ def item_edit(request, pk):
         form = ItemForm(instance=item)
     return render(request, 'products/item_edit.html', {'form': form})
 
+
 def item_delete(request, pk):
     prod = get_object_or_404(Item, pk=pk)
     prod.delete()
     return redirect('item_list')
-

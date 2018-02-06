@@ -1,20 +1,20 @@
 from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import LoginForm, SignUpForm
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 
 
 def login_view(request):
     form = LoginForm(data=request.POST)
     if request.method == "POST":
         if form.is_valid():
-            username = form.cleaned_data["username"]
+            email = form.cleaned_data["email"]
             password = form.cleaned_data["password"]
-            user = authenticate(request, username=username, password=password)
+            user = authenticate(request, email=email, password=password)
             if user is not None:
                 login(request, user)
                 return HttpResponseRedirect(reverse('index:index'))
@@ -42,7 +42,7 @@ def signup(request):
             user.profile.birth_date = form.cleaned_data.get('birth_date')
             user.save()
             raw_password = form.cleaned_data.get('password1')
-            user = authenticate(username=user.username, password=raw_password)
+            user = authenticate(email=user.email, password=raw_password)
             login(request, user)
             return HttpResponseRedirect(reverse('index:index'))
     else:

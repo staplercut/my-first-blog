@@ -19,7 +19,7 @@
         </div>
         {% if user.is_authenticated %}
             <div class="logged-user">
-                <a href="{% url 'accounts:logout_view' %}">Welcome, {{ user.username }}! Logout</a>
+                <a href="{% url 'accounts:logout_view' %}">Welcome, {{ user.email }}! Logout</a>
             </div>
         {% else %}
             <div class="logged-user">

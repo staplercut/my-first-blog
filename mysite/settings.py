@@ -25,7 +25,7 @@ SECRET_KEY = '%-$p1tv2uwpwb+k+xmxc&rp6ogi+r6l_r*^vj@n+($(adpyur0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'staplercut.pythonanywhere.com', '2fe66ecd.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1', 'staplercut.pythonanywhere.com', 'c77f372c.ngrok.io']
 
 
 # Application definition
@@ -123,3 +123,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+

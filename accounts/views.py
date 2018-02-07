@@ -35,14 +35,9 @@ def logout_view(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = SignUpForm(data=request.POST)
         if form.is_valid():
             user = form.save()
-            user.refresh_from_db()  # load the profile instance created by the signal
-            user.profile.birth_date = form.cleaned_data.get('birth_date')
-            user.save()
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(email=user.email, password=raw_password)
             login(request, user)
             return HttpResponseRedirect(reverse('index:index'))
     else:
